@@ -1,7 +1,7 @@
 # JSRegexForm
 # Contact Form Validation with JavaScript
 
-#EN
+# EN
 
 This project demonstrates a simple contact form with client-side validation using JavaScript. The form includes fields for a user's name, first name, email, phone number, and message. Each field is validated using regular expressions (regex) to ensure the input meets specific criteria before submission.
 
