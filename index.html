@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Formulaire de contact</h1>
+
+    <form action="" id="form" method="post">
+        <div>
+            <label for="NomID">Nom</label>
+            <input type="text" id="NomID" name="nom" placeholder="Entrez votre nom" required>
+            <span class="error-message" id="NomError"></span>
+        </div>
+
+        <div>
+            <label for="prenomID">Prénom</label>
+            <input type="text" id="prenomID" name="prenom" placeholder="Entrez votre prénom" required>
+            <span class="error-message" id="PrenomError"></span>
+        </div>
+
+        <div>
+            <label for="emailID">Email</label>
+            <input type="email" id="emailID" name="email" placeholder="Entrez votre email" required>
+            <span class="error-message" id="EmailError"></span>
+        </div>
+
+        <div>
+            <label for="telephoneID">Téléphone</label>
+            <input type="tel" id="telephoneID" name="telephone" placeholder="Entrez votre téléphone" required>
+            <span class="error-message" id="TelephoneError"></span>
+        </div>
+
+        <div>
+            <label for="messageID">Message</label>
+            <textarea id="messageID" name="message" placeholder="Entrez votre message" required></textarea>
+            <span class="error-message" id="MessageError"></span>
+        </div>
+
+        <div>
+            <button type="submit" id="btn">Envoyer</button>
+        </div>
+    </form>
+
+    <script>
+
+
+
+
+
+
+
+
+        function verificationDeInput() {
+
+
+            const btn = document.getElementById("btn");
+
+
+            const nomError = document.getElementById("NomError")
+            const prenomError = document.getElementById("PrenomError")
+            const emailError = document.getElementById("EmailError")
+            const telephoneError = document.getElementById("TelephoneError")
+            const messageError = document.getElementById("MessageError")
+
+
+
+            const nameRegex = /^[A-Za-zÀ-ÿ\s'-]{2,50}$/;
+            const prenomRegex = /^[A-Za-zÀ-ÿ\s'-]{2,50}$/;
+            const emailRegex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
+            const telRegex = /^(?:\+32|0)[1-9]\d{7,8}$/;
+            const messageRegex = /^.{5,1000}$/;
+
+
+
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+
+                const inputName = document.querySelector("#NomID").value.trim();
+                const inputPrenom = document.querySelector("#prenomID").value.trim();
+                const inputEmail = document.getElementById("emailID").value.trim();
+                const inputTel = document.querySelector("#telephoneID").value.trim();
+                const inputMessage = document.querySelector("#messageID").value.trim();
+
+                if (inputName == "") {
+                    nomError.textContent = " Nom est vide ";
+                    nomError.style.color = "red";
+                } else if (nameRegex.test(inputName) == false) {
+                    nomError.textContent = "Nom n'est pas valide";
+                    nomError.style.color = "red";
+                } else {
+                    nomError.textContent = "";
+                }
+
+
+                if (inputPrenom == "") {
+                    prenomError.textContent = " Prénom est vide ";
+                    prenomError.style.color = "red";
+                } else if (nameRegex.test(inputPrenom) == false) {
+                    prenomError.textContent = "Prénom n'est pas valide";
+                    prenomError.style.color = "red";
+                }
+                else {
+                    prenomError.textcontent = "";
+                }
+
+                if (inputEmail == "") {
+                    emailError.textContent = " Email est vide ";
+                    emailError.style.color = "red";
+                } else if (emailRegex.test(inputEmail) == false) {
+                    emailError.textContent = "Email n'est pas valide";
+                    emailError.style.color = "red";
+                } else {
+                    emailError.textContent = "";
+                }
+
+                if (inputTel == "") {
+                    telephoneError.textContent = " Téléphone est vide ";
+                    telephoneError.style.color = "red";
+                } else if (telRegex.test(inputTel) == false) {
+                    telephoneError.textContent = "Téléphone n'est pas valide";
+                    telephoneError.style.color = "red";
+                } else {
+                    telephoneError.textContent = "";
+                }
+
+                if (inputMessage == "") {
+                    messageError.textContent = " Message est vide ";
+                    messageError.style.color = "red";
+                } else if (messageRegex.test(inputMessage) == false) {
+                    messageError.textContent = "Message n'est pas valide";
+                    messageError.style.color = "red";
+                } else {
+                    messageError.textContent = "";
+                }
+
+                if (nameRegex.test(inputName) && nameRegex.test(inputPrenom) && emailRegex.test(inputEmail) && telRegex.test(inputTel) && messageRegex.test(inputMessage)) {
+                    alert("Formulaire soumis avec succès !")
+                }
+                    
+
+
+            })
+        }
+
+
+        verificationDeInput()
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
