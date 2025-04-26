@@ -1,4 +1,3 @@
-# JSRegexForm
 # Contact Form Validation with JavaScript
 
 # EN
